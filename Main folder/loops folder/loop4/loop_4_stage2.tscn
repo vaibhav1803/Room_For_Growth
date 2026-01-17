@@ -42,10 +42,12 @@ position = Vector2(336, 498)
 
 [node name="Popup_Manager" parent="." instance=ExtResource("4_6wu7w")]
 
-[node name="Monologue_Manager" parent="." instance=ExtResource("5_31u5y")]
-
 [node name="Minigame_Manager" parent="." instance=ExtResource("6_e136c")]
 
 [node name="load_player" parent="." instance=ExtResource("8_8tdwa")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Monologue_Manager" parent="CanvasLayer" instance=ExtResource("5_31u5y")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

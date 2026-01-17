@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0ee785lt37p3"]
+[gd_scene load_steps=13 format=3 uid="uid://b0ee785lt37p3"]
 
 [ext_resource type="Texture2D" uid="uid://dh7lloblk761v" path="res://assets/visuals/loop_3_office.png" id="1_hgmq8"]
 [ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_yqjnt"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://clsoan160j57n" path="res://popup/Popup_Manager.tscn" id="4_sivua"]
 [ext_resource type="PackedScene" uid="uid://csskevvgw571a" path="res://monologue/monologue_manager.tscn" id="5_bdpln"]
 [ext_resource type="PackedScene" uid="uid://doy87e8ev0ffl" path="res://Main folder/Minigames folder/minigames_4.tscn" id="6_a74of"]
+[ext_resource type="PackedScene" uid="uid://dnqxqa6mkm8ll" path="res://Music_Player.tscn" id="7_music"]
 [ext_resource type="PackedScene" uid="uid://btwn1rhswtcmw" path="res://load_player.tscn" id="8_fy01p"]
+[ext_resource type="VideoStream" path="res://assets/visuals/ACT4_ogv.ogv" id="9_video"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7lhqw"]
 radius = 82.0
@@ -43,14 +45,19 @@ position = Vector2(336, 498)
 
 [node name="Popup_Manager" parent="." instance=ExtResource("4_sivua")]
 
-[node name="Monologue_Manager" parent="." instance=ExtResource("5_bdpln")]
-
 [node name="Minigame_Manager" parent="." instance=ExtResource("6_a74of")]
+
+[node name="Music_Player" parent="." instance=ExtResource("7_music")]
 
 [node name="Act_4_Starting_Player" type="VideoStreamPlayer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+stream = ExtResource("9_video")
 
 [node name="load_player" parent="." instance=ExtResource("8_fy01p")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Monologue_Manager" parent="CanvasLayer" instance=ExtResource("5_bdpln")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

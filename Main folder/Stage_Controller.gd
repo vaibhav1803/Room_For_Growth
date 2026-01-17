@@ -44,19 +44,38 @@ var _override_outro_event_key: String = ""
 
 
 func _ready() -> void:
-	if load_player:
-		load_player.play()
 	# 1) Hide other layers safely
 	_set_minigame_visible(false)
 	_set_popup_visible(false)
 
 	if monologue_ui:
-		monologue_ui.visible = true
+		monologue_ui.visible = false
+
 
 	# 2) Connect monologue finished
 	if monologue_ui:
 		if not monologue_ui.dialogue_finished.is_connected(_on_monologue_finished):
 			monologue_ui.dialogue_finished.connect(_on_monologue_finished)
+
+	# 2.5) Check for Intro Video (Act Cutscenes)
+	var intro_video = null
+	for child in get_children():
+		# Look for typical naming "Act_X_Starting_Player" or simply any child VideoStreamPlayer that isn't load_player
+		if child is VideoStreamPlayer and child.name != "load_player":
+			intro_video = child
+			break
+	
+	if intro_video:
+		intro_video.visible = true
+		intro_video.play()
+		await intro_video.finished
+		intro_video.visible = false
+
+	if load_player:
+		load_player.visible = true
+		load_player.play()
+		await load_player.finished
+		load_player.visible = false
 
 	# 3) Connect popup signals
 	if popup_ui:
@@ -84,6 +103,7 @@ func _start_intro() -> void:
 	await get_tree().create_timer(0.5).timeout
 
 	if monologue_ui:
+		monologue_ui.visible = true
 		monologue_ui.start_monologue(scene_key, start_event, corruption_start)
 
 

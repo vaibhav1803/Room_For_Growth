@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bsihpaglaalqe"]
+[gd_scene load_steps=14 format=3 uid="uid://bsihpaglaalqe"]
 
 [ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_nxvww"]
 [ext_resource type="Texture2D" uid="uid://cn5k3itqqstws" path="res://assets/visuals/office memeoryyy.png" id="2_6itne"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dcn5345dgs4qi" path="res://Main folder/Minigames folder/minigames_5.tscn" id="6_hxoag"]
 [ext_resource type="PackedScene" uid="uid://dnqxqa6mkm8ll" path="res://Music_Player.tscn" id="8_mcv8v"]
 [ext_resource type="PackedScene" uid="uid://btwn1rhswtcmw" path="res://load_player.tscn" id="10_bbse1"]
+[ext_resource type="VideoStream" path="res://assets/visuals/ACT2_ogv.ogv" id="11_video"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3surx"]
 size = Vector2(3239, 25)
@@ -101,5 +102,6 @@ offset_bottom = -4.0
 [node name="Act_2_Starting_Player" type="VideoStreamPlayer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+stream = ExtResource("11_video")
 
 [node name="Popup_Manager" parent="." instance=ExtResource("4_x08o2")]

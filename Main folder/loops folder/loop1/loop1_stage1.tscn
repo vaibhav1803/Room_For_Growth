@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://1b7pjp4houbk"]
+[gd_scene load_steps=13 format=3 uid="uid://1b7pjp4houbk"]
 
 [ext_resource type="PackedScene" uid="uid://bgpihl0ya6iqf" path="res://characters/mc_office.tscn" id="1_3ebf1"]
 [ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_tvksm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://csskevvgw571a" path="res://monologue/monologue_manager.tscn" id="6_unegp"]
 [ext_resource type="PackedScene" uid="uid://dnqxqa6mkm8ll" path="res://Music_Player.tscn" id="7_ed403"]
 [ext_resource type="PackedScene" uid="uid://btwn1rhswtcmw" path="res://load_player.tscn" id="9_vq20k"]
+[ext_resource type="VideoStream" path="res://assets/visuals/ACT1_ogv.ogv" id="10_video"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uj53"]
 size = Vector2(3239, 25)
@@ -20,6 +21,7 @@ size = Vector2(20, 730)
 script = ExtResource("1_tvksm")
 scene_key = "Scene_1_Office"
 next_scene_path = "res://Main folder/loops folder/loop1/loop1_stage2.tscn"
+use_minigame = true
 use_popup = true
 popup_event_key = "trigger_glitch"
 metadata/_edit_horizontal_guides_ = [-464.0]
@@ -74,14 +76,6 @@ offset_right = -1.0
 offset_bottom = 766.0
 color = Color(0.0338533, 0.0338533, 0.0338533, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Monologue_Manager" parent="CanvasLayer" instance=ExtResource("6_unegp")]
-offset_left = -3.0
-offset_top = -8.0
-offset_right = -3.0
-offset_bottom = -8.0
-
 [node name="Player" parent="." instance=ExtResource("1_3ebf1")]
 position = Vector2(328, 644)
 
@@ -98,5 +92,14 @@ offset_bottom = -266.0
 [node name="Act_1_Starting_Player" type="VideoStreamPlayer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+stream = ExtResource("10_video")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Monologue_Manager" parent="CanvasLayer" instance=ExtResource("6_unegp")]
+offset_left = -3.0
+offset_top = -8.0
+offset_right = -3.0
+offset_bottom = -8.0
 
 [node name="Popup_Manager" parent="." instance=ExtResource("5_5m5au")]

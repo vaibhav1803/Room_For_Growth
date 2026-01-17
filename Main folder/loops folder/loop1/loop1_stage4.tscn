@@ -59,6 +59,7 @@ script = ExtResource("1_o64hv")
 scene_key = "Scene_4_Toddler"
 next_scene_path = "res://Main folder/loops folder/loop1/loop1_stage5.tscn"
 corruption_start = 2
+use_minigame = true
 use_popup = true
 
 [node name="KidRoomPh" type="Sprite2D" parent="."]

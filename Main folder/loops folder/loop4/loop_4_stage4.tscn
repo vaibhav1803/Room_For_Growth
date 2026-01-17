@@ -18,6 +18,7 @@ height = 342.0
 script = ExtResource("1_wk7vv")
 scene_key = "L4_Scene_4_Toddler"
 next_scene_path = "res://bad_ending.tscn"
+start_event = ""
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1620, 360)
@@ -39,10 +40,12 @@ position = Vector2(328, 638)
 
 [node name="Popup_Manager" parent="." instance=ExtResource("4_okk4d")]
 
-[node name="Monologue_Manager" parent="." instance=ExtResource("5_2y3tk")]
-
 [node name="Minigame_Manager" parent="." instance=ExtResource("6_r0l6c")]
 
 [node name="load_player" parent="." instance=ExtResource("8_iyakg")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Monologue_Manager" parent="CanvasLayer" instance=ExtResource("5_2y3tk")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

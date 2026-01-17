@@ -17,7 +17,7 @@ height = 692.0
 [node name="Loop4Stage3" type="Node2D"]
 script = ExtResource("1_ie1iv")
 scene_key = "L4_Scene_3_School"
-next_scene_path = "res://Main folder/loops folder/loop4/loop_4_stage3.tscn"
+next_scene_path = "res://Main folder/loops folder/loop4/loop_4_stage4.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1620, 360)
@@ -40,10 +40,12 @@ position = Vector2(336, 498)
 
 [node name="Popup_Manager" parent="." instance=ExtResource("4_s0x8s")]
 
-[node name="Monologue_Manager" parent="." instance=ExtResource("5_glfn0")]
-
 [node name="Minigame_Manager" parent="." instance=ExtResource("6_jhx01")]
 
 [node name="load_player" parent="." instance=ExtResource("8_3pvn7")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Monologue_Manager" parent="CanvasLayer" instance=ExtResource("5_glfn0")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

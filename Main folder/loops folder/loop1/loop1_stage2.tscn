@@ -20,6 +20,7 @@ size = Vector2(20, 730)
 script = ExtResource("1_40er3")
 scene_key = "Scene_2_College"
 next_scene_path = "res://Main folder/loops folder/loop1/loop1_stage3.tscn"
+use_minigame = true
 use_popup = true
 popup_event_key = "viva_fail"
 

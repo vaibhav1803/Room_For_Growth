@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1wsu65cigq63"]
+[gd_scene load_steps=11 format=3 uid="uid://d1wsu65cigq63"]
 
 [ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_usny6"]
 [ext_resource type="Texture2D" uid="uid://8lds58d5qd8a" path="res://assets/visuals/loop_3_toddler.png" id="2_f64up"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://clsoan160j57n" path="res://popup/Popup_Manager.tscn" id="6_kdyxd"]
 [ext_resource type="PackedScene" uid="uid://dnqxqa6mkm8ll" path="res://Music_Player.tscn" id="6_mutir"]
 [ext_resource type="PackedScene" uid="uid://btwn1rhswtcmw" path="res://load_player.tscn" id="7_fxsdo"]
+[ext_resource type="VideoStream" path="res://assets/visuals/ACT3_ogv.ogv" id="8_video"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23q7m"]
 size = Vector2(3239, 25)
@@ -92,5 +93,6 @@ offset_bottom = -452.0
 [node name="Act_3_Starting_Player" type="VideoStreamPlayer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+stream = ExtResource("8_video")
 
 [node name="Popup_Manager" parent="." instance=ExtResource("6_kdyxd")]

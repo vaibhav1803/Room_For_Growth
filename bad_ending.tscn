@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfcnf21v4f6np"]
+[gd_scene load_steps=5 format=3 uid="uid://cfcnf21v4f6np"]
 
 [ext_resource type="Script" path="res://bad_ending.gd" id="1_cxqk2"]
 [ext_resource type="VideoStream" path="res://assets/visuals/bad_ending_animation_ogv.ogv" id="2_5v468"]
 [ext_resource type="PackedScene" uid="uid://cyur5bxssxw74" path="res://buttons_folder/menu.tscn" id="3_ukl8r"]
+[ext_resource type="PackedScene" uid="uid://dnqxqa6mkm8ll" path="res://Music_Player.tscn" id="4_music"]
 
 [node name="Bad_ending" type="Control"]
 layout_mode = 3
@@ -52,3 +53,5 @@ autowrap_mode = 2
 
 [node name="Menu" parent="." instance=ExtResource("3_ukl8r")]
 layout_mode = 1
+
+[node name="Music_Player" parent="." instance=ExtResource("4_music")]

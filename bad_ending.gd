@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var video_stream_player = $VideoStreamPlayer
 @onready var ending_text = $Label
