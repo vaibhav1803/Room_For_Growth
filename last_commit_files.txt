@@ -1,0 +1,27 @@
+commit f19a10a3890707bec2d1ccb73d7a8a9231f7af18
+Author: Sparsh Tickoo <106656096+BlueFireCryptic@users.noreply.github.com>
+Date:   Sat Jan 17 09:13:07 2026 +0530
+
+    Add Master Volume to Options Menu
+
+Main folder/Stage_Controller.gd
+Main folder/loops folder/loop1/loop1_stage1.tscn
+Main folder/loops folder/loop1/loop1_stage2.tscn
+Main folder/loops folder/loop1/loop1_stage4.tscn
+Main folder/loops folder/loop2/loop2_stage1.tscn
+Main folder/loops folder/loop3/loop3_stage1.tscn
+Main folder/loops folder/loop3/loop3_stage2.tscn
+Main folder/loops folder/loop4/loop_4_stage1.tscn
+Main folder/loops folder/loop4/loop_4_stage2.tscn
+Main folder/loops folder/loop4/loop_4_stage3.tscn
+Main folder/loops folder/loop4/loop_4_stage4.tscn
+Music_Player.gd
+RFG.console.exe
+bad_ending.gd
+bad_ending.tscn
+export_presets.cfg
+main_menu.gd
+main_menu.tscn
+monologue/MonologueData.gd
+options_menu.gd
+options_menu.tscn

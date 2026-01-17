@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt4qwladh3rpe"]
+[gd_scene load_steps=6 format=3 uid="uid://bt4qwladh3rpe"]
 
 [ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_ae0on"]
 [ext_resource type="Texture2D" uid="uid://x3nvu5lab1td" path="res://assets/visuals/office_idle.png" id="2_1kh47"]
 [ext_resource type="PackedScene" uid="uid://csskevvgw571a" path="res://monologue/monologue_manager.tscn" id="3_cm8h5"]
 [ext_resource type="PackedScene" uid="uid://clsoan160j57n" path="res://popup/Popup_Manager.tscn" id="3_ercgk"]
+[ext_resource type="PackedScene" uid="uid://btwn1rhswtcmw" path="res://load_player.tscn" id="4_loadp"]
 
 [node name="Loop1Stage5" type="Node2D"]
 script = ExtResource("1_ae0on")
@@ -39,3 +40,6 @@ texture = ExtResource("2_1kh47")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Monologue_Manager" parent="CanvasLayer" instance=ExtResource("3_cm8h5")]
+
+[node name="load_player" parent="." instance=ExtResource("4_loadp")]
+visible = false

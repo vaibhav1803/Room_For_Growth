@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://oytw5fm6lhp8"]
+[gd_scene load_steps=5 format=3 uid="uid://oytw5fm6lhp8"]
 
 [ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_6yhob"]
 [ext_resource type="PackedScene" uid="uid://csskevvgw571a" path="res://monologue/monologue_manager.tscn" id="2_bxmc5"]
 [ext_resource type="PackedScene" uid="uid://clsoan160j57n" path="res://popup/Popup_Manager.tscn" id="3_a4nhs"]
+[ext_resource type="PackedScene" uid="uid://btwn1rhswtcmw" path="res://load_player.tscn" id="4_loadp"]
 
 [node name="loop1_death_scene" type="Node2D"]
 script = ExtResource("1_6yhob")
@@ -32,3 +33,6 @@ offset_left = -9.0
 offset_top = 33.0
 offset_right = -9.0
 offset_bottom = 33.0
+
+[node name="load_player" parent="." instance=ExtResource("4_loadp")]
+visible = false

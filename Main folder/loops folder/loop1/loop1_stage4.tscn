@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0xapx412iyoa"]
+[gd_scene load_steps=18 format=3 uid="uid://c0xapx412iyoa"]
 
 [ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_o64hv"]
 [ext_resource type="Texture2D" uid="uid://c8y7b2yhb83hq" path="res://assets/visuals/loop_1_toddler_rooom.png" id="2_fi7lm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dclm7barbnowk" path="res://assets/visuals/toddler_sprites.png" id="6_ay3fr"]
 [ext_resource type="PackedScene" uid="uid://doy87e8ev0ffl" path="res://Main folder/Minigames folder/minigames_4.tscn" id="6_s6md3"]
 [ext_resource type="PackedScene" uid="uid://dnqxqa6mkm8ll" path="res://Music_Player.tscn" id="8_sr48f"]
+[ext_resource type="PackedScene" uid="uid://btwn1rhswtcmw" path="res://load_player.tscn" id="9_loadp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04qhc"]
 size = Vector2(3239, 25)
@@ -59,8 +60,6 @@ script = ExtResource("1_o64hv")
 scene_key = "Scene_4_Toddler"
 next_scene_path = "res://Main folder/loops folder/loop1/loop1_stage5.tscn"
 corruption_start = 2
-use_minigame = true
-use_popup = true
 
 [node name="KidRoomPh" type="Sprite2D" parent="."]
 position = Vector2(1627.12, 366.45)
@@ -142,3 +141,10 @@ offset_bottom = -436.0
 [node name="Music_Player" parent="." instance=ExtResource("8_sr48f")]
 
 [node name="Popup_Manager" parent="." instance=ExtResource("4_8ljt8")]
+offset_left = 1264.0
+offset_top = 200.0
+offset_right = 1264.0
+offset_bottom = 200.0
+
+[node name="load_player" parent="." instance=ExtResource("9_loadp")]
+visible = false
