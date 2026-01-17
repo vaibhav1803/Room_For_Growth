@@ -1,0 +1,135 @@
+[gd_scene load_steps=18 format=3 uid="uid://ceiy6fu0t5ojf"]
+
+[ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_ibase"]
+[ext_resource type="Texture2D" uid="uid://dh7lloblk761v" path="res://assets/visuals/loop_3_office.png" id="2_ooetu"]
+[ext_resource type="PackedScene" uid="uid://bgpihl0ya6iqf" path="res://characters/mc_office.tscn" id="3_ju57o"]
+[ext_resource type="PackedScene" uid="uid://csskevvgw571a" path="res://monologue/monologue_manager.tscn" id="4_iv42j"]
+[ext_resource type="PackedScene" uid="uid://clsoan160j57n" path="res://popup/Popup_Manager.tscn" id="5_i1pqj"]
+[ext_resource type="Texture2D" uid="uid://ctitga0ewjeg1" path="res://assets/visuals/office_friend.png" id="7_e2yv6"]
+[ext_resource type="PackedScene" uid="uid://pcvs42i6tjvd" path="res://Main folder/Minigames folder/Minigame10/Minigame_10.tscn" id="7_gwa4x"]
+[ext_resource type="Texture2D" uid="uid://dsg4xaoy03f8x" path="res://assets/visuals/office_boss.png" id="8_4r65n"]
+[ext_resource type="PackedScene" uid="uid://dnqxqa6mkm8ll" path="res://Music_Player.tscn" id="9_2f8c1"]
+[ext_resource type="PackedScene" uid="uid://btwn1rhswtcmw" path="res://load_player.tscn" id="10_14ien"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xttw1"]
+size = Vector2(3239, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sv8m"]
+size = Vector2(20, 730)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8hc4"]
+atlas = ExtResource("8_4r65n")
+region = Rect2(0, 0, 2002, 2002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1ede"]
+atlas = ExtResource("8_4r65n")
+region = Rect2(2002, 0, 2002, 2002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3c0u"]
+atlas = ExtResource("8_4r65n")
+region = Rect2(4004, 0, 2002, 2002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j78ih"]
+atlas = ExtResource("8_4r65n")
+region = Rect2(6006, 0, 2002, 2002)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kiryw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8hc4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1ede")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3c0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j78ih")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 1.0
+}]
+
+[node name="Loop3Stage4" type="Node2D"]
+script = ExtResource("1_ibase")
+scene_key = "L3_Scene_1_Office"
+next_scene_path = "res://good_ending.tscn"
+use_minigame = true
+use_popup = true
+popup_event_key = "after_minigame"
+
+[node name="OfficePh" type="Sprite2D" parent="."]
+position = Vector2(1632, 360.25)
+scale = Vector2(1.01876, 1.08403)
+texture = ExtResource("2_ooetu")
+
+[node name="walls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = -1040.0
+offset_top = -52.0
+offset_right = -1.0
+offset_bottom = 766.0
+color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = 3240.0
+offset_top = -81.0
+offset_right = 4279.0
+offset_bottom = 815.0
+color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+
+[node name="LevelBoundaries" type="StaticBody2D" parent="."]
+
+[node name="Floor" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(1620.5, 706.5)
+shape = SubResource("RectangleShape2D_xttw1")
+
+[node name="Ceiling" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(1620, 12)
+shape = SubResource("RectangleShape2D_xttw1")
+
+[node name="Walls" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(0, 355)
+shape = SubResource("RectangleShape2D_7sv8m")
+
+[node name="Walls4" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(3240, 355)
+shape = SubResource("RectangleShape2D_7sv8m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Monologue_Manager" parent="CanvasLayer" instance=ExtResource("4_iv42j")]
+
+[node name="Player" parent="." instance=ExtResource("3_ju57o")]
+position = Vector2(324, 621)
+
+[node name="Minigame_Manager" parent="Player" instance=ExtResource("7_gwa4x")]
+position = Vector2(-324, -621)
+
+[node name="NPC1_Loop2Stage1" type="Sprite2D" parent="."]
+position = Vector2(2009, 465)
+scale = Vector2(-0.255, 0.255)
+texture = ExtResource("7_e2yv6")
+
+[node name="NPC2_Loop2Stage1" type="AnimatedSprite2D" parent="."]
+position = Vector2(2289, 477)
+scale = Vector2(0.255, 0.255)
+sprite_frames = SubResource("SpriteFrames_kiryw")
+animation = &"talk"
+frame_progress = 0.93866
+
+[node name="Music_Player" parent="." instance=ExtResource("9_2f8c1")]
+
+[node name="load_player" parent="." instance=ExtResource("10_14ien")]
+
+[node name="Popup_Manager" parent="." instance=ExtResource("5_i1pqj")]

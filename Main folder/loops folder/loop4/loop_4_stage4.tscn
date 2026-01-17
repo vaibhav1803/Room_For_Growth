@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://cm8h4gfr3nhg0"]
+
+[ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_wk7vv"]
+[ext_resource type="Texture2D" uid="uid://8lds58d5qd8a" path="res://assets/visuals/loop_3_toddler.png" id="1_wu04t"]
+[ext_resource type="PackedScene" uid="uid://bgpihl0ya6iqf" path="res://characters/mc_office.tscn" id="2_q4lgx"]
+[ext_resource type="Texture2D" uid="uid://d1irqtws3g2ax" path="res://assets/visuals/loop_4_podium.png" id="3_6pk45"]
+[ext_resource type="Script" path="res://Main folder/loops folder/loop4/Area2D4.gd" id="3_crng2"]
+[ext_resource type="PackedScene" uid="uid://clsoan160j57n" path="res://popup/Popup_Manager.tscn" id="4_okk4d"]
+[ext_resource type="PackedScene" uid="uid://csskevvgw571a" path="res://monologue/monologue_manager.tscn" id="5_2y3tk"]
+[ext_resource type="PackedScene" uid="uid://doy87e8ev0ffl" path="res://Main folder/Minigames folder/minigames_4.tscn" id="6_r0l6c"]
+[ext_resource type="PackedScene" uid="uid://btwn1rhswtcmw" path="res://load_player.tscn" id="8_iyakg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1qp8h"]
+radius = 120.0
+height = 342.0
+
+[node name="Loop4Stage4" type="Node2D"]
+script = ExtResource("1_wk7vv")
+scene_key = "L4_Scene_4_Toddler"
+next_scene_path = "res://bad_ending.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1620, 360)
+texture = ExtResource("1_wu04t")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_crng2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(2404, 564)
+texture = ExtResource("3_6pk45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2403, 557)
+shape = SubResource("CapsuleShape2D_1qp8h")
+
+[node name="Player" parent="." instance=ExtResource("2_q4lgx")]
+position = Vector2(328, 638)
+
+[node name="Popup_Manager" parent="." instance=ExtResource("4_okk4d")]
+
+[node name="Monologue_Manager" parent="." instance=ExtResource("5_2y3tk")]
+
+[node name="Minigame_Manager" parent="." instance=ExtResource("6_r0l6c")]
+
+[node name="load_player" parent="." instance=ExtResource("8_iyakg")]
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

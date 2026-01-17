@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfcnf21v4f6np"]
+
+[ext_resource type="Script" path="res://bad_ending.gd" id="1_cxqk2"]
+[ext_resource type="VideoStream" path="res://assets/visuals/bad_ending_animation_ogv.ogv" id="2_5v468"]
+[ext_resource type="PackedScene" uid="uid://cyur5bxssxw74" path="res://buttons_folder/menu.tscn" id="3_ukl8r"]
+
+[node name="Bad_ending" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cxqk2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.201527, 0.201527, 0.201527, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_5v468")
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -202.0
+offset_right = 280.0
+offset_bottom = 188.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 48
+text = "PROCESS COMPLETE: 
+
+You broke the mirror to change the reflection. Now, you are only the shards."
+autowrap_mode = 2
+
+[node name="Menu" parent="." instance=ExtResource("3_ukl8r")]
+layout_mode = 1

@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1wsu65cigq63"]
+
+[ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_usny6"]
+[ext_resource type="Texture2D" uid="uid://8lds58d5qd8a" path="res://assets/visuals/loop_3_toddler.png" id="2_f64up"]
+[ext_resource type="PackedScene" uid="uid://csskevvgw571a" path="res://monologue/monologue_manager.tscn" id="5_y6ung"]
+[ext_resource type="PackedScene" uid="uid://cyg84rcpvebtv" path="res://characters/mc_toddler.tscn" id="6_6lhqx"]
+[ext_resource type="PackedScene" uid="uid://clsoan160j57n" path="res://popup/Popup_Manager.tscn" id="6_kdyxd"]
+[ext_resource type="PackedScene" uid="uid://dnqxqa6mkm8ll" path="res://Music_Player.tscn" id="6_mutir"]
+[ext_resource type="PackedScene" uid="uid://btwn1rhswtcmw" path="res://load_player.tscn" id="7_fxsdo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23q7m"]
+size = Vector2(3239, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3tef"]
+size = Vector2(20, 730)
+
+[node name="Loop3Stage1" type="Node2D"]
+script = ExtResource("1_usny6")
+scene_key = "L3_Scene_4_Toddler"
+next_scene_path = "res://choice_of_life.tscn"
+use_popup = true
+popup_event_key = "system_popup_error"
+
+[node name="KidRoomPh" type="Sprite2D" parent="."]
+position = Vector2(1625, 361.75)
+scale = Vector2(1.011, 1.14931)
+texture = ExtResource("2_f64up")
+
+[node name="walls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = -1040.0
+offset_top = -52.0
+offset_right = -1.0
+offset_bottom = 766.0
+color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = 3240.0
+offset_top = -81.0
+offset_right = 4279.0
+offset_bottom = 815.0
+color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+
+[node name="LevelBoundaries" type="StaticBody2D" parent="."]
+
+[node name="Floor" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(1620.5, 706.5)
+shape = SubResource("RectangleShape2D_23q7m")
+
+[node name="Ceiling" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(1620, 12)
+shape = SubResource("RectangleShape2D_23q7m")
+
+[node name="Walls" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(0, 355)
+shape = SubResource("RectangleShape2D_a3tef")
+
+[node name="Walls4" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(3240, 355)
+shape = SubResource("RectangleShape2D_a3tef")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Monologue_Manager" parent="CanvasLayer" instance=ExtResource("5_y6ung")]
+offset_left = -13.0
+offset_top = -364.0
+offset_right = -13.0
+offset_bottom = -364.0
+
+[node name="Player" parent="." instance=ExtResource("6_6lhqx")]
+position = Vector2(330, 492)
+
+[node name="Minigame_Manager" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -330.0
+offset_top = -492.0
+offset_right = -290.0
+offset_bottom = -452.0
+
+[node name="Music_Player" parent="." instance=ExtResource("6_mutir")]
+
+[node name="load_player" parent="." instance=ExtResource("7_fxsdo")]
+
+[node name="Act_3_Starting_Player" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Popup_Manager" parent="." instance=ExtResource("6_kdyxd")]

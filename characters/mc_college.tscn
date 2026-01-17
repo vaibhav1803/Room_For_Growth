@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://bv3yau4l8rcu3"]
+
+[ext_resource type="Script" path="res://characters/mc.gd" id="1_d7kcb"]
+[ext_resource type="Texture2D" uid="uid://cwl8108nbj0eo" path="res://assets/visuals/college_idle.png" id="3_uinah"]
+[ext_resource type="Texture2D" uid="uid://wsy0ssxh5bcl" path="res://assets/visuals/loop_1_college_walk_sprite_sheet.png" id="5_qcw11"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pkjo"]
+atlas = ExtResource("3_uinah")
+region = Rect2(0, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87x05"]
+atlas = ExtResource("5_qcw11")
+region = Rect2(0, 0, 2002, 2002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upqb1"]
+atlas = ExtResource("5_qcw11")
+region = Rect2(2002, 0, 2002, 2002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv3cw"]
+atlas = ExtResource("5_qcw11")
+region = Rect2(4004, 0, 2002, 2002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crtwi"]
+atlas = ExtResource("5_qcw11")
+region = Rect2(6006, 0, 2002, 2002)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bm7ms"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pkjo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87x05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upqb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv3cw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crtwi")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gp0cm"]
+radius = 24.0
+height = 364.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animations") groups=["player"]]
+script = ExtResource("1_d7kcb")
+animations = NodePath("mc_college_animations")
+
+[node name="mc_college_animations" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.224775, 0.224775)
+sprite_frames = SubResource("SpriteFrames_bm7ms")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13, -1)
+shape = SubResource("CapsuleShape2D_gp0cm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(204, -138)

@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyg84rcpvebtv"]
+
+[ext_resource type="Script" path="res://characters/mc.gd" id="1_56xov"]
+[ext_resource type="Texture2D" uid="uid://btru4tx03coqu" path="res://assets/visuals/toddler_idle.png" id="3_fahwt"]
+[ext_resource type="Texture2D" uid="uid://xtqr5t06fdho" path="res://assets/visuals/loop_1_toddler_walk_sprite_sheet.png" id="3_fc4yq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3ths"]
+atlas = ExtResource("3_fahwt")
+region = Rect2(0, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dnp0"]
+atlas = ExtResource("3_fahwt")
+region = Rect2(0, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awupo"]
+atlas = ExtResource("3_fc4yq")
+region = Rect2(0, 0, 2002, 2002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfmr4"]
+atlas = ExtResource("3_fc4yq")
+region = Rect2(2002, 0, 2002, 2002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs3ap"]
+atlas = ExtResource("3_fc4yq")
+region = Rect2(0, 0, 2002, 2002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j72e"]
+atlas = ExtResource("3_fc4yq")
+region = Rect2(2002, 0, 2002, 2002)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7brad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3ths")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dnp0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awupo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfmr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qs3ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2j72e")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3i66j"]
+radius = 24.0
+height = 364.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animations") groups=["player"]]
+script = ExtResource("1_56xov")
+animations = NodePath("mc_baby_animations")
+
+[node name="mc_baby_animations" type="AnimatedSprite2D" parent="."]
+position = Vector2(-28, 160)
+scale = Vector2(0.224775, 0.224775)
+sprite_frames = SubResource("SpriteFrames_7brad")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13, -1)
+shape = SubResource("CapsuleShape2D_3i66j")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(204, -138)

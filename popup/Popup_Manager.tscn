@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://clsoan160j57n"]
+
+[ext_resource type="Script" path="res://popup/Popup_Manager.gd" id="1_y70iv"]
+[ext_resource type="StyleBox" uid="uid://c7ls8s17eyu14" path="res://popup_button_idle_style.tres" id="2_nxt0f"]
+[ext_resource type="StyleBox" uid="uid://bxbrmkhqbrfq0" path="res://popup_button_hover_style.tres" id="3_p3gi7"]
+[ext_resource type="StyleBox" uid="uid://dmgqxfuqroijg" path="res://popup_button_press_style.tres" id="4_2h51j"]
+
+[node name="Popup_Manager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_y70iv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 570.0
+offset_bottom = 332.0
+color = Color(0.921569, 0.878431, 0.988235, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+offset_right = 500.0
+offset_bottom = 46.0
+color = Color(0.301961, 0.160784, 0.588235, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_bottom = 46.0
+grow_horizontal = 0
+color = Color(0.301961, 0.160784, 0.588235, 1)
+
+[node name="PopupText" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 130.0
+offset_right = 549.0
+offset_bottom = 181.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Move to the next memory?"
+
+[node name="Popupheading" type="Label" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 1.0
+offset_right = 421.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "SYSTEM NOTIFICATION"
+
+[node name="Popupheading2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 525.0
+offset_top = -2.0
+offset_right = 548.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "X"
+
+[node name="NextButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 231.0
+offset_right = 419.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("2_nxt0f")
+theme_override_styles/hover = ExtResource("3_p3gi7")
+theme_override_styles/pressed = ExtResource("4_2h51j")
+text = "Yes"

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cng72cj6dgadl"]
+
+[ext_resource type="Shader" path="res://blur.gdshader" id="1_c8r2h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8w72"]
+shader = ExtResource("1_c8r2h")
+shader_parameter/blur_strength = 1.2
+shader_parameter/haze_strength = 0.35
+shader_parameter/haze_color = Color(1, 1, 1, 1)
+shader_parameter/noise_scale = 10.0
+shader_parameter/noise_speed = 0.3
+
+[node name="Blur" type="BackBufferCopy"]
+copy_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_k8w72")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -100.0
+offset_right = -100.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2

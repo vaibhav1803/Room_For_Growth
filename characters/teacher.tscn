@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://y6nslfs2dq8j"]
+
+[ext_resource type="Texture2D" uid="uid://d2imhfbq5gaja" path="res://assets/visuals/loop_1_teacher_sprite_sheet.png" id="1_r31nj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tvupa"]
+radius = 22.0
+height = 170.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5oja"]
+atlas = ExtResource("1_r31nj")
+region = Rect2(0, 0, 2002, 2002)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vcxfb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5oja")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Teacher" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_tvupa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(-0.108891, 0.108891)
+sprite_frames = SubResource("SpriteFrames_vcxfb")
+animation = &"idle"
+frame_progress = 0.84065

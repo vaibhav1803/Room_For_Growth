@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://btwn1rhswtcmw"]
+
+[ext_resource type="VideoStream" path="res://assets/visuals/loading_animation_ogv.ogv" id="1_j5g34"]
+
+[node name="load_player" type="VideoStreamPlayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("1_j5g34")

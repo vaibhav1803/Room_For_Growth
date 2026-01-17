@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bim8ymfn685mn"]
+
+[ext_resource type="Script" path="res://Main folder/Minigames folder/Minigame10/paddle.gd" id="1_ir1sl"]
+[ext_resource type="Texture2D" uid="uid://bbepe65sy1sxx" path="res://Main folder/Minigames folder/Minigame10/paddle.png" id="2_xfxxd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cxprf"]
+radius = 4.0
+height = 72.0
+
+[node name="paddle" type="CharacterBody2D"]
+script = ExtResource("1_ir1sl")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.101124, 0.0909091)
+texture = ExtResource("2_xfxxd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.56704
+shape = SubResource("CapsuleShape2D_cxprf")

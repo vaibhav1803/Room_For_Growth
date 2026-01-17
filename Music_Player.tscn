@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnqxqa6mkm8ll"]
+
+[ext_resource type="AudioStream" uid="uid://vh1l4ejhm7x8" path="res://assets/audio/Loop_1_Nostalgia.wav" id="1_fei4y"]
+[ext_resource type="Script" path="res://Music_Player.gd" id="2_od5ci"]
+
+[node name="Music_Player" type="AudioStreamPlayer"]
+stream = ExtResource("1_fei4y")
+script = ExtResource("2_od5ci")

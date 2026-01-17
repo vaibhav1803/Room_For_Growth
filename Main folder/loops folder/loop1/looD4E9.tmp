@@ -1,0 +1,133 @@
+[gd_scene load_steps=9 format=3 uid="uid://1b7pjp4houbk"]
+
+[ext_resource type="PackedScene" uid="uid://bgpihl0ya6iqf" path="res://main_character/mc.tscn" id="1_3ebf1"]
+[ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_tvksm"]
+[ext_resource type="PackedScene" uid="uid://tab136upaotx" path="res://Main folder/Minigames folder/minigames_1.tscn" id="2_jy8pq"]
+[ext_resource type="Texture2D" uid="uid://dx6x4n8r33oa7" path="res://assets/office_loop_1.png" id="2_wvanr"]
+[ext_resource type="PackedScene" uid="uid://clsoan160j57n" path="res://popup/Popup_Manager.tscn" id="5_5m5au"]
+[ext_resource type="PackedScene" uid="uid://csskevvgw571a" path="res://monologue/monologue_manager.tscn" id="6_unegp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uj53"]
+size = Vector2(3239, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf4tx"]
+size = Vector2(20, 730)
+
+[node name="Loop1Stage1" type="Node2D"]
+script = ExtResource("1_tvksm")
+metadata/_edit_horizontal_guides_ = [-464.0]
+
+[node name="Office" type="Sprite2D" parent="."]
+position = Vector2(1624.71, 359.321)
+scale = Vector2(1.00203, 0.999109)
+texture = ExtResource("2_wvanr")
+
+[node name="LevelBoundaries" type="StaticBody2D" parent="."]
+
+[node name="Floor" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(1620.5, 706.5)
+shape = SubResource("RectangleShape2D_6uj53")
+
+[node name="Ceiling" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(1620, 12)
+shape = SubResource("RectangleShape2D_6uj53")
+
+[node name="Walls" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(0, 355)
+shape = SubResource("RectangleShape2D_kf4tx")
+
+[node name="Walls2" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(1080, 355)
+shape = SubResource("RectangleShape2D_kf4tx")
+
+[node name="Walls3" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(2160, 355)
+shape = SubResource("RectangleShape2D_kf4tx")
+
+[node name="Walls4" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(3240, 355)
+shape = SubResource("RectangleShape2D_kf4tx")
+
+[node name="Player" parent="." instance=ExtResource("1_3ebf1")]
+position = Vector2(78, 626)
+
+[node name="walls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 693.0
+offset_right = 1070.0
+offset_bottom = 733.0
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = 1090.0
+offset_top = 693.0
+offset_right = 2151.0
+offset_bottom = 733.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = 2171.0
+offset_top = 693.0
+offset_right = 3232.0
+offset_bottom = 733.0
+color = Color(0, 1, 0, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = 708.0
+offset_right = 1111.0
+offset_bottom = 1905.0
+color = Color(0.113033, 0.0417623, 0.0295997, 1)
+
+[node name="ColorRect8" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = -1175.0
+offset_top = -254.0
+offset_right = -7.0
+offset_bottom = 943.0
+color = Color(0.113033, 0.0417623, 0.0295997, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = -21.0
+offset_top = -1186.0
+offset_right = 1147.0
+offset_bottom = 11.0
+color = Color(0.113033, 0.0417623, 0.0295997, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = 1082.0
+offset_top = -176.0
+offset_right = 3308.0
+offset_bottom = 1021.0
+color = Color(0.113033, 0.0417623, 0.0295997, 1)
+
+[node name="Minigame_Manager" parent="." instance=ExtResource("2_jy8pq")]
+visible = false
+offset_left = 355.0
+offset_top = 174.0
+offset_right = 355.0
+offset_bottom = 174.0
+
+[node name="Popup_Manager" parent="." instance=ExtResource("5_5m5au")]
+offset_left = 275.0
+offset_top = 319.0
+offset_right = 275.0
+offset_bottom = 319.0
+
+[node name="Monologue_Manager" parent="." instance=ExtResource("6_unegp")]
+offset_left = 496.0
+offset_top = 20.0
+offset_right = 496.0
+offset_bottom = 20.0

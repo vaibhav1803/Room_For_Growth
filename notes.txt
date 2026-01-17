@@ -1,0 +1,13 @@
+# Loop 1 stage 1 - 
+the player has access to the minigame, movement, monologue, and pop up
+
+# MISC
+- minigames appear on the center of the screen, the background blurs
+
+# NPCs
+- NPC1- interactable, 
+- NPC2- interactable, 
+- NPC3- sleeping, not interactable
+
+choice_of_life.tscn will come after loop2tage4.tscn ends
+

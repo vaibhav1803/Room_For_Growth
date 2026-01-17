@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://cuhtyesr1qcto"]
+
+[ext_resource type="Script" path="res://characters/mc.gd" id="1_6d18a"]
+[ext_resource type="Texture2D" uid="uid://cwu58umyxbbui" path="res://assets/visuals/school_idle.png" id="2_ge3bt"]
+[ext_resource type="Texture2D" uid="uid://dbjys3qg2xkl8" path="res://assets/visuals/loop_1_school_walk_sprite_sheet.png" id="3_rg1n5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8xd5"]
+atlas = ExtResource("2_ge3bt")
+region = Rect2(0, 0, 2000, 2000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_345g3"]
+atlas = ExtResource("3_rg1n5")
+region = Rect2(0, 0, 2002, 2002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jor4l"]
+atlas = ExtResource("3_rg1n5")
+region = Rect2(2002, 0, 2002, 2002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eusha"]
+atlas = ExtResource("3_rg1n5")
+region = Rect2(4004, 0, 2002, 2002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mckv3"]
+atlas = ExtResource("3_rg1n5")
+region = Rect2(6006, 0, 2002, 2002)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sfet7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8xd5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_345g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jor4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eusha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mckv3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5yuj7"]
+radius = 24.0
+height = 364.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animations") groups=["player"]]
+script = ExtResource("1_6d18a")
+animations = NodePath("mc_school_animations")
+
+[node name="mc_school_animations" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.231, 0.231)
+sprite_frames = SubResource("SpriteFrames_sfet7")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13, -1)
+shape = SubResource("CapsuleShape2D_5yuj7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(204, -138)

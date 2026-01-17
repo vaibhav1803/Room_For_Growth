@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://10adkh63vc1m"]
+
+[ext_resource type="Script" path="res://good_ending.gd" id="1_74748"]
+[ext_resource type="Texture2D" uid="uid://b5ejqi4htam2m" path="res://assets/visuals/good_ending.png" id="2_wne6f"]
+[ext_resource type="PackedScene" uid="uid://cyur5bxssxw74" path="res://buttons_folder/menu.tscn" id="3_11ku4"]
+
+[node name="GoodEnding" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_74748")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.466181, 0.466181, 0.466181, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(776, 348)
+texture = ExtResource("2_wne6f")
+
+[node name="Label" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 112.0
+offset_right = 468.0
+offset_bottom = 589.0
+theme_override_font_sizes/normal_font_size = 48
+text = "Hope you are satisfied with our experience. life is not a glitch to be fixed, but a story to be accepted."
+
+[node name="Menu" parent="." instance=ExtResource("3_11ku4")]
+layout_mode = 1

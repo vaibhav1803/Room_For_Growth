@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bl6ixtd23ntso"]
+
+[node name="minigameforL2S4" type="Control"]
+layout_mode = 3
+anchors_preset = 0

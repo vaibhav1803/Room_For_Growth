@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcn5345dgs4qi"]
+
+[ext_resource type="Script" path="res://Main folder/Minigames folder/minigames_5.gd" id="1_inwmw"]
+[ext_resource type="StyleBox" uid="uid://c7ls8s17eyu14" path="res://popup_button_idle_style.tres" id="2_mpk5w"]
+[ext_resource type="StyleBox" uid="uid://bxbrmkhqbrfq0" path="res://popup_button_hover_style.tres" id="3_eg6iy"]
+[ext_resource type="StyleBox" uid="uid://dmgqxfuqroijg" path="res://popup_button_press_style.tres" id="4_5ny13"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uatck"]
+bg_color = Color(0.342736, 0.188542, 0.657742, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vlpfo"]
+bg_color = Color(0.43116, 0.263433, 0.800827, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kq3mg"]
+bg_color = Color(0.280545, 0.711221, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Minigames5" type="Control"]
+layout_mode = 3
+anchor_left = 0.376
+anchor_top = 0.357
+anchor_right = 0.631
+anchor_bottom = 0.635
+offset_left = -406.08
+offset_top = -257.04
+offset_right = 398.52
+offset_bottom = 262.8
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_inwmw")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.372
+anchor_top = 0.361
+anchor_right = 0.628
+anchor_bottom = 0.639
+offset_left = 0.23999
+offset_top = 0.0799866
+offset_right = -0.240051
+offset_bottom = -0.0800476
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uatck")
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
+offset_bottom = 23.0
+grow_horizontal = 2
+scale = Vector2(-0.506561, -0.70013)
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -13.5
+offset_right = 62.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_vlpfo")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kq3mg")
+
+[node name="DownloadButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -39.0
+offset_right = 44.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/normal = ExtResource("2_mpk5w")
+theme_override_styles/hover = ExtResource("3_eg6iy")
+theme_override_styles/pressed = ExtResource("4_5ny13")
+theme_override_styles/disabled = ExtResource("3_eg6iy")
+text = " Download "
+
+[node name="StatusLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 514.0
+offset_right = 569.0
+offset_bottom = 537.0
+
+[node name="Timer" type="Timer" parent="Panel"]
+wait_time = 0.05

@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://35a8g3784gej"]
+
+[ext_resource type="PackedScene" path="res://Main folder/Minigames folder/Minigame10/paddle.tscn" id="1_2habx"]
+[ext_resource type="Script" path="res://Main folder/Minigames folder/Minigame10/game.gd" id="1_j2yyf"]
+[ext_resource type="PackedScene" path="res://Main folder/Minigames folder/Minigame10/ball.tscn" id="2_1mua6"]
+[ext_resource type="Script" path="res://Main folder/Minigames folder/Minigame10/paddle.gd" id="3_0eyvr"]
+[ext_resource type="Texture2D" uid="uid://cuukha6a4h8p" path="res://Main folder/Minigames folder/Minigame10/left.jpg" id="4_75yt5"]
+[ext_resource type="Texture2D" uid="uid://cmfuilh6l3q35" path="res://Main folder/Minigames folder/Minigame10/right.jpg" id="5_jrfm0"]
+[ext_resource type="Script" path="res://Main folder/Minigames folder/Minigame10/ball.gd" id="5_sgg6n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orqx7"]
+size = Vector2(8, 312)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7grsx"]
+size = Vector2(416, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnnjp"]
+size = Vector2(8, 312)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjtaf"]
+size = Vector2(400, 9)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_j2yyf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 400.0
+offset_bottom = 300.0
+color = Color(0.634716, 0.779583, 0.995885, 1)
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(-4, 148)
+shape = SubResource("RectangleShape2D_orqx7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(200, -4)
+shape = SubResource("RectangleShape2D_7grsx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(404, 148)
+shape = SubResource("RectangleShape2D_qnnjp")
+
+[node name="dead_zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dead_zone"]
+position = Vector2(200, 304)
+shape = SubResource("RectangleShape2D_yjtaf")
+
+[node name="paddle" parent="." instance=ExtResource("1_2habx")]
+position = Vector2(199, 282)
+script = ExtResource("3_0eyvr")
+
+[node name="ball" parent="." instance=ExtResource("2_1mua6")]
+position = Vector2(199, 273)
+script = ExtResource("5_sgg6n")
+
+[node name="score" type="Label" parent="."]
+offset_left = 358.0
+offset_top = 4.0
+offset_right = 398.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+text = "0000"
+
+[node name="left button" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.619608)
+position = Vector2(13, 245)
+scale = Vector2(0.0860534, 0.0860534)
+texture_normal = ExtResource("4_75yt5")
+action = "left"
+
+[node name="right button" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0.647059)
+position = Vector2(347, 240)
+scale = Vector2(0.0860534, 0.0860534)
+texture_normal = ExtResource("5_jrfm0")
+action = "right"
+
+[connection signal="body_entered" from="dead_zone" to="." method="_on_dead_body_entered"]

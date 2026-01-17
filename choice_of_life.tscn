@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn777vb2yjeum"]
+
+[ext_resource type="Script" path="res://choice_of_life.gd" id="1_r2vea"]
+[ext_resource type="Texture2D" uid="uid://b2enp347bsk2h" path="res://assets/visuals/good_choice_image.png" id="2_dur0h"]
+[ext_resource type="Texture2D" uid="uid://cc5b1bjuow2dk" path="res://assets/visuals/bad_choice_image.png" id="3_263m8"]
+
+[node name="Choice_of_life" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r2vea")
+loop3_start_scene = "res://Main folder/loops folder/loop3/loop3_stage2.tscn"
+bad_ending_scene = "res://Main folder/loops folder/loop4/loop_4_stage1.tscn"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="Good_Choice" type="Sprite2D" parent="HBoxContainer2"]
+position = Vector2(816, 236)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("2_dur0h")
+
+[node name="Bad_Choice" type="Sprite2D" parent="HBoxContainer2"]
+position = Vector2(276, 238)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("3_263m8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -242.0
+offset_top = -59.0
+offset_right = 242.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+
+[node name="ChoiceA" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Choice A"
+
+[node name="ChoiceB" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Choice B"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 478.0
+offset_right = 480.0
+offset_bottom = 653.0
+theme_override_font_sizes/font_size = 48
+text = "Accept reality 
+as it is."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 665.0
+offset_top = 484.0
+offset_right = 979.0
+offset_bottom = 659.0
+theme_override_font_sizes/font_size = 48
+text = "Write your 
+own past."
+horizontal_alignment = 1

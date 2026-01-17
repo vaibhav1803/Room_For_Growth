@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://cj64xfxttstan"]
+
+[ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_be0hh"]
+[ext_resource type="Texture2D" uid="uid://c7ijmv756od0r" path="res://assets/visuals/loop_3_college.png" id="2_d0pau"]
+[ext_resource type="Texture2D" uid="uid://ctp2moat5p8yl" path="res://assets/visuals/friend 2_memory.png" id="3_6804o"]
+[ext_resource type="Texture2D" uid="uid://w31yoeym4k0c" path="res://assets/visuals/friend 1_memory.png" id="4_ffcbq"]
+[ext_resource type="PackedScene" uid="uid://clsoan160j57n" path="res://popup/Popup_Manager.tscn" id="4_orsv5"]
+[ext_resource type="PackedScene" uid="uid://csskevvgw571a" path="res://monologue/monologue_manager.tscn" id="5_1d6jc"]
+[ext_resource type="PackedScene" uid="uid://bv3yau4l8rcu3" path="res://characters/mc_college.tscn" id="6_27ebw"]
+[ext_resource type="PackedScene" uid="uid://dbfqdh88nle6r" path="res://Main folder/Minigames folder/minigames_11.tscn" id="7_4pdaf"]
+[ext_resource type="PackedScene" uid="uid://dnqxqa6mkm8ll" path="res://Music_Player.tscn" id="9_2ptvf"]
+[ext_resource type="PackedScene" uid="uid://btwn1rhswtcmw" path="res://load_player.tscn" id="10_gnhrq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37nu6"]
+size = Vector2(3239, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb7tq"]
+size = Vector2(20, 730)
+
+[node name="Loop3Stage3" type="Node2D"]
+script = ExtResource("1_be0hh")
+scene_key = "L3_Scene_2_College"
+next_scene_path = "res://Main folder/loops folder/loop3/loop3_stage4.tscn"
+use_minigame = true
+use_popup = true
+popup_event_key = "after_minigame"
+
+[node name="CollegePh" type="Sprite2D" parent="."]
+position = Vector2(1625, 361.75)
+scale = Vector2(1.00823, 1.07986)
+texture = ExtResource("2_d0pau")
+
+[node name="walls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = -1040.0
+offset_top = -52.0
+offset_right = -1.0
+offset_bottom = 766.0
+color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="walls"]
+layout_mode = 0
+offset_left = 3240.0
+offset_top = -81.0
+offset_right = 4279.0
+offset_bottom = 815.0
+color = Color(0.0338533, 0.0338533, 0.0338533, 1)
+
+[node name="LevelBoundaries" type="StaticBody2D" parent="."]
+
+[node name="Floor" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(1620.5, 706.5)
+shape = SubResource("RectangleShape2D_37nu6")
+
+[node name="Ceiling" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(1620, 12)
+shape = SubResource("RectangleShape2D_37nu6")
+
+[node name="Walls" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(0, 355)
+shape = SubResource("RectangleShape2D_jb7tq")
+
+[node name="Walls4" type="CollisionShape2D" parent="LevelBoundaries"]
+position = Vector2(3240, 355)
+shape = SubResource("RectangleShape2D_jb7tq")
+
+[node name="NPC2_Loop2Stage2" type="Sprite2D" parent="."]
+position = Vector2(1007, 401)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("3_6804o")
+
+[node name="NPC3_Loop2Stage2" type="Sprite2D" parent="."]
+position = Vector2(1417, 340)
+scale = Vector2(0.408625, 0.408625)
+texture = ExtResource("4_ffcbq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Monologue_Manager" parent="CanvasLayer" instance=ExtResource("5_1d6jc")]
+
+[node name="Player" parent="." instance=ExtResource("6_27ebw")]
+position = Vector2(345, 483)
+
+[node name="Minigame_Manager" parent="Player" instance=ExtResource("7_4pdaf")]
+visible = false
+position = Vector2(161, -339)
+scale = Vector2(0.51562, 0.475884)
+
+[node name="Music_Player" parent="." instance=ExtResource("9_2ptvf")]
+
+[node name="load_player" parent="." instance=ExtResource("10_gnhrq")]
+
+[node name="Popup_Manager" parent="." instance=ExtResource("4_orsv5")]

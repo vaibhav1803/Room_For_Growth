@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0ee785lt37p3"]
+
+[ext_resource type="Texture2D" uid="uid://dh7lloblk761v" path="res://assets/visuals/loop_3_office.png" id="1_hgmq8"]
+[ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_yqjnt"]
+[ext_resource type="PackedScene" uid="uid://cyg84rcpvebtv" path="res://characters/mc_toddler.tscn" id="2_uqbn5"]
+[ext_resource type="Texture2D" uid="uid://bd4l1fr5ktswy" path="res://assets/visuals/loop_4_office_teddy.png" id="3_l2t6e"]
+[ext_resource type="Script" path="res://Main folder/loops folder/loop4/Area2D1.gd" id="3_lbm28"]
+[ext_resource type="PackedScene" uid="uid://clsoan160j57n" path="res://popup/Popup_Manager.tscn" id="4_sivua"]
+[ext_resource type="PackedScene" uid="uid://csskevvgw571a" path="res://monologue/monologue_manager.tscn" id="5_bdpln"]
+[ext_resource type="PackedScene" uid="uid://doy87e8ev0ffl" path="res://Main folder/Minigames folder/minigames_4.tscn" id="6_a74of"]
+[ext_resource type="PackedScene" uid="uid://btwn1rhswtcmw" path="res://load_player.tscn" id="8_fy01p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7lhqw"]
+radius = 82.0
+height = 312.0
+
+[node name="Loop4Stage1" type="Node2D"]
+script = ExtResource("1_yqjnt")
+scene_key = "L4_Scene_1_Office"
+next_scene_path = "res://Main folder/loops folder/loop4/loop_4_stage2.tscn"
+use_minigame = true
+use_popup = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1499, 365)
+scale = Vector2(0.925309, 1.05833)
+texture = ExtResource("1_hgmq8")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_lbm28")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(2420, 622)
+texture = ExtResource("3_l2t6e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2417, 615)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_7lhqw")
+
+[node name="Player" parent="." instance=ExtResource("2_uqbn5")]
+position = Vector2(336, 498)
+
+[node name="Popup_Manager" parent="." instance=ExtResource("4_sivua")]
+
+[node name="Monologue_Manager" parent="." instance=ExtResource("5_bdpln")]
+
+[node name="Minigame_Manager" parent="." instance=ExtResource("6_a74of")]
+
+[node name="Act_4_Starting_Player" type="VideoStreamPlayer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="load_player" parent="." instance=ExtResource("8_fy01p")]
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

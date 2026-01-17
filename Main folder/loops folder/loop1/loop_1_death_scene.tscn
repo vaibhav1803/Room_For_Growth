@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://oytw5fm6lhp8"]
+
+[ext_resource type="Script" path="res://Main folder/Stage_Controller.gd" id="1_6yhob"]
+[ext_resource type="PackedScene" uid="uid://csskevvgw571a" path="res://monologue/monologue_manager.tscn" id="2_bxmc5"]
+[ext_resource type="PackedScene" uid="uid://clsoan160j57n" path="res://popup/Popup_Manager.tscn" id="3_a4nhs"]
+
+[node name="loop1_death_scene" type="Node2D"]
+script = ExtResource("1_6yhob")
+scene_key = "System_Reset"
+next_scene_path = "res://Main folder/loops folder/loop2/loop2_stage1.tscn"
+start_event = "crash"
+corruption_start = 3
+
+[node name="Popup_Manager" parent="." instance=ExtResource("3_a4nhs")]
+offset_left = 243.0
+offset_top = 90.0
+offset_right = 243.0
+offset_bottom = 90.0
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Minigame_Manager" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Monologue_Manager" parent="CanvasLayer" instance=ExtResource("2_bxmc5")]
+offset_left = -9.0
+offset_top = 33.0
+offset_right = -9.0
+offset_bottom = 33.0

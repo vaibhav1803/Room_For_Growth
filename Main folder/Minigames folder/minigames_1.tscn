@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://tab136upaotx"]
+
+[ext_resource type="Script" path="res://Main folder/Minigames folder/minigames_1.gd" id="1_ovdyf"]
+
+[node name="Minigames1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ovdyf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -122.0
+offset_right = 167.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.727251, 0.506951, 0.206169, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -114.0
+offset_right = 159.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.870115, 0.687666, 0.388917, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -11.5
+offset_right = 5.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
